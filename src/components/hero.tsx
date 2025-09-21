@@ -10,8 +10,8 @@ export function Hero() {
   const headingRef = useRef<HTMLHeadingElement | null>(null)
 
   // Split headline into characters for animation
-  const leftText = useMemo(() => Array.from("INTELLIGENT ANALYTICS,"), [])
-  const rightText = useMemo(() => Array.from(" FINALLY."), [])
+  const leftText = useMemo(() => Array.from("BUILDING QUIETLY"), [])
+  const rightText = useMemo(() => Array.from(". SHIPPING BOLDLY."), [])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -69,16 +69,20 @@ export function Hero() {
             ))}
           </h1>
 
-          <Link href="#testimonials" className={buttonClasses({ variant: "primary", size: "lg", className: "text-secondary-foreground" })}>
-            Let’s go
+          <Link
+            href="#projects"
+            className={buttonClasses({
+              variant: "secondary",
+              size: "lg",
+              className: "font-semibold tracking-wide hover:shadow-[0_18px_46px_-20px_var(--color-primary)] hover:border-primary/40",
+            })}
+          >
+            Explore my work
           </Link>
         </div>
       </div>
 
-      {/* Accent blur element behind content */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-16 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl" />
-      </div>
+      {/* Removed legacy central green blur for cleaner look */}
     </section>
   )
 }

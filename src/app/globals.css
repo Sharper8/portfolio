@@ -58,9 +58,9 @@
   --card-foreground: oklch(0.9288 0.0126 255.5078);
   --popover: oklch(0.2603 0 0);
   --popover-foreground: oklch(0.7348 0 0);
-  --primary: oklch(0.8477 0.2153 141.1211);
+  --primary: rgb(113, 238, 94);
   --primary-foreground: oklch(0.9213 0.0135 167.1556);
-  --secondary: oklch(0.2603 0 0);
+  --secondary: oklch(23.172% 0.01266 17.992);
   --secondary-foreground: oklch(0.9851 0 0);
   --muted: oklch(0.2393 0 0);
   --muted-foreground: oklch(0.7122 0 0);
@@ -169,4 +169,53 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+}
+
+/* Hide native scrollbars (keep scroll functionality) */
+* {
+  scrollbar-width: none; /* Firefox */
+}
+*::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Scroll progress bar behind navbar */
+/* Base progress line */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: auto;
+  top: 0.5rem; /* closer to top to eliminate visual gap */
+  bottom: auto;
+  height: 6px;
+  width: var(--scroll-progress, 0%);
+  background: color-mix(in oklch, var(--primary) 92%, white 8%);
+  z-index: 30; /* under navbar (navbar wrapper uses z-50) */
+  border-radius: 999px;
+}
+
+/* Starlight shimmer behind the line */
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0.35rem;
+  height: 10px;
+  width: var(--scroll-progress, 0%);
+  z-index: 29; /* below the line, still behind navbar */
+  background:
+    radial-gradient(6px 4px at 12% 50%, color-mix(in oklch, var(--primary) 30%, transparent 70%) 0%, transparent 60%) repeat-x,
+    radial-gradient(10px 6px at 44% 50%, color-mix(in oklch, var(--primary) 22%, transparent 78%) 0%, transparent 60%) repeat-x,
+    radial-gradient(8px 5px at 76% 50%, color-mix(in oklch, var(--primary) 26%, transparent 74%) 0%, transparent 60%) repeat-x;
+  background-size: 140px 100%, 220px 100%, 180px 100%;
+  background-position: 0 0, 0 0, 0 0;
+  animation: shimmer-x 9s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes shimmer-x {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 140px 0, 220px 0, 180px 0; }
 }

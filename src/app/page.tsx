@@ -1,16 +1,38 @@
 import { Hero } from "@/components/hero";
-import { Testimonials } from "@/components/testimonials";
-import { Pricing } from "@/components/pricing";
-import { FinalCTA } from "@/components/final-cta";
+import { Experiences } from "@/components/experiences";
+import { Skills } from "@/components/skills";
+import { Projects } from "@/components/projects";
+import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Testimonials />
-      <Pricing />
-      <FinalCTA />
+      {/* About */}
+      <section id="about" className="scroll-mt-24">
+        <Hero />
+      </section>
+
+      {/* Experiences */}
+      <section id="experiences" className="scroll-mt-24">
+        <Experiences />
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="scroll-mt-24">
+        <Skills />
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="scroll-mt-24">
+        <Projects />
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="scroll-mt-24">
+        <Contact />
+      </section>
+
       <Footer />
     </main>
   );
