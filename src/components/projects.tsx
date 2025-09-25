@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
+import { gsap } from "@/lib/gsap"
 
 type Project = {
   title: string
@@ -44,121 +45,47 @@ const projects: Project[] = [
 ]
 
 export function Projects() {
-  const viewportRef = useRef<HTMLDivElement | null>(null)
-  const [active, setActive] = useState(0)
-
-  // Center a given card by index
-  const scrollToIndex = (i: number) => {
-    const el = viewportRef.current
-    if (!el) return
-    const children = Array.from(el.querySelectorAll<HTMLElement>("[data-idx]"))
-    const target = children[i]
-    if (!target) return
-    const vRect = el.getBoundingClientRect()
-    const tRect = target.getBoundingClientRect()
-    const delta = (tRect.left + tRect.width / 2) - (vRect.left + vRect.width / 2)
-    el.scrollBy({ left: delta, behavior: "smooth" })
-  }
+  const gridRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const el = viewportRef.current
-    if (!el) return
-
-    let ticking = false
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const vRect = el.getBoundingClientRect()
-          const vCenter = vRect.left + vRect.width / 2
-          let closest = Infinity
-          let closestIdx = 0
-          const children = Array.from(el.querySelectorAll<HTMLElement>("[data-idx]"))
-          for (const child of children) {
-            const cRect = child.getBoundingClientRect()
-            const cCenter = cRect.left + cRect.width / 2
-            const distPx = cCenter - vCenter
-            const dist = Math.min(1, Math.abs(distPx) / (vRect.width / 2))
-            child.style.setProperty("--dist", String(dist))
-            if (Math.abs(distPx) < Math.abs(closest)) {
-              closest = distPx
-              closestIdx = Number(child.dataset.idx)
-            }
-          }
-          setActive(closestIdx)
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    const onScrollEnd = () => {
-      // Snap to the active card after user stops scrolling briefly
-      clearTimeout((onScrollEnd as any)._t)
-      ;(onScrollEnd as any)._t = setTimeout(() => scrollToIndex(active), 80)
-    }
-
-    const ro = new ResizeObserver(onScroll)
-    ro.observe(el)
-    el.addEventListener("scroll", onScroll, { passive: true })
-    el.addEventListener("scroll", onScrollEnd, { passive: true })
-    // initial center first card
-    requestAnimationFrame(() => {
-      onScroll()
-      scrollToIndex(0)
+    if (!gridRef.current) return
+    const cards = gridRef.current.querySelectorAll(".proj-card")
+    gsap.set(cards, { y: 30, opacity: 0 })
+    gsap.to(cards, {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.08,
+      scrollTrigger: { trigger: gridRef.current, start: "top 80%", once: true },
     })
-    return () => {
-      ro.disconnect()
-      el.removeEventListener("scroll", onScroll)
-      el.removeEventListener("scroll", onScrollEnd)
-    }
-  }, [active])
-
-  // Keyboard support
-  useEffect(() => {
-    const el = viewportRef.current
-    if (!el) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev()
-      if (e.key === "ArrowRight") next()
-    }
-    el.addEventListener("keydown", onKey)
-    return () => el.removeEventListener("keydown", onKey)
-  }, [active])
-
-  const prev = () => scrollToIndex(Math.max(0, active - 1))
-  const next = () => scrollToIndex(Math.min(projects.length - 1, active + 1))
+  }, [])
 
   return (
     <section id="projects" className="w-full border-t">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24">
         <h2 className="mb-6 text-2xl sm:text-3xl font-semibold tracking-tight">Projects</h2>
 
-  <div className="relative">
-          {/* Edge fade masks */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent z-10" />
-
-          {/* Viewport */}
-          <div
-            ref={viewportRef}
-            className="relative flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth [overscroll-behavior-x:none] focus:outline-none"
-            tabIndex={0}
-            aria-label="Projects carousel"
-          >
-            {projects.map((p, i) => (
+        {/* Creative responsive grid (no carousel) */}
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5">
+          {projects.map((p, i) => {
+            // Creative layout: alternate sizes for rhythm
+            const cls =
+              i % 5 === 0
+                ? "lg:col-span-7"
+                : i % 5 === 1
+                ? "lg:col-span-5"
+                : i % 5 === 2
+                ? "lg:col-span-6"
+                : i % 5 === 3
+                ? "lg:col-span-6"
+                : "lg:col-span-12"
+            return (
               <Link
-                data-idx={i}
                 key={p.title}
                 href={p.href || "#"}
-                className={
-                  "group snap-center rounded-2xl border bg-card p-6 shadow-sm transition-[transform,opacity,box-shadow] will-change-transform " +
-                  "min-w-[85%] sm:min-w-[70%] md:min-w-[60%] lg:min-w-[46%] xl:min-w-[38%]"
-                }
-                style={{
-                  // gentle scale and fade only for clarity
-                  transform: "translateZ(0) scale(calc(1 - (var(--dist) * 0.08)))",
-                  opacity: "calc(1 - (var(--dist) * 0.25))",
-                }}
+                className={`proj-card group rounded-2xl border bg-card p-6 shadow-sm transition-transform duration-300 will-change-transform ${cls}`}
+                style={{ transform: "translateZ(0)" }}
               >
                 <div className="mb-2 flex items-center justify-between">
                   <h3 className="text-lg font-semibold tracking-tight group-hover:text-primary transition-colors">{p.title}</h3>
@@ -172,45 +99,15 @@ export function Projects() {
                   ))}
                 </div>
               </Link>
-            ))}
-          </div>
-
-          {/* Controls */}
-          <button
-            aria-label="Previous project"
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 rounded-full border bg-card/70 backdrop-blur px-3 py-2 text-sm"
-          >
-            ←
-          </button>
-          <button
-            aria-label="Next project"
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 rounded-full border bg-card/70 backdrop-blur px-3 py-2 text-sm"
-          >
-            →
-          </button>
-        </div>
-
-        {/* Dots */}
-        <div className="mt-4 flex items-center justify-center gap-2">
-          {projects.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Go to project ${i + 1}`}
-              onClick={() => scrollToIndex(i)}
-              className={
-                "h-2.5 w-2.5 rounded-full transition-colors " +
-                (i === active ? "bg-primary" : "bg-muted-foreground/30 hover:bg-muted-foreground/50")
-              }
-            />
-          ))}
+            )
+          })}
         </div>
       </div>
 
       <style jsx global>{`
+        .proj-card:hover { transform: translateY(-4px) rotateZ(-0.25deg); }
         @media (prefers-reduced-motion: reduce) {
-          [data-idx] { transform: none !important; opacity: 1 !important; }
+          .proj-card { transform: none !important; }
         }
       `}</style>
     </section>

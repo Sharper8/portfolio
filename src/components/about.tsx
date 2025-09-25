@@ -43,7 +43,7 @@ export function About() {
         }}
       >
         <div className="grid gap-8 md:grid-cols-5">
-          <div className="about-block md:col-span-3 rounded-2xl border bg-card p-6 shadow-sm">
+          <div className="about-block md:col-span-3 rounded-2xl border bg-card p-6 shadow-sm flex flex-col">
             <h2 className="mb-3 text-2xl sm:text-3xl font-semibold tracking-tight">About</h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
               A Master of Science in Computer Science candidate focused on cutting-edge technologies. Over 2 years of
@@ -52,7 +52,7 @@ export function About() {
               skills to drive innovation in AI, cybersecurity and infrastructure projects.
             </p>
             {/* Info chips moved from Contact to balance layout */}
-            <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
+            <div className="mt-auto pt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
               <span className="rounded-full border px-2.5 py-1">Open to relocation (global)</span>
               <span className="rounded-full border px-2.5 py-1">Typical response: ~24h</span>
               <span className="rounded-full border px-2.5 py-1">Open to internships & consulting</span>

@@ -83,6 +83,27 @@ export function Experiences() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24" ref={ref}>
         <h2 className="mb-8 text-2xl sm:text-3xl font-semibold tracking-tight">Experiences</h2>
         <div className="grid gap-5 md:grid-cols-2">
+          {/* Plus card first to appear top-left */}
+          <Link
+            href="#contact"
+            aria-label="Open to cutting-edge Computer Science opportunities"
+            className="xp-card group rounded-2xl border border-primary/30 bg-[color-mix(in_oklch,var(--primary)_12%,transparent)] p-6 shadow-sm hover:shadow-md transition-all hover:border-primary/60 focus:outline-none focus:ring-2 focus:ring-[color-mix(in_oklch,var(--primary)_50%,transparent)] flex flex-col"
+          >
+            <div className="mb-3 flex items-center justify-between">
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[color-mix(in_oklch,var(--primary)_22%,transparent)] text-[color-mix(in_oklch,var(--primary)_92%,white_8%)]">
+                <span className="text-xl leading-none">+</span>
+              </div>
+              <span className="text-xs text-[color-mix(in_oklch,var(--primary)_80%,white_20%)]">Let’s talk</span>
+            </div>
+            <h3 className="text-lg font-semibold tracking-tight text-[color-mix(in_oklch,var(--primary)_92%,white_8%)]">Open to cutting-edge work</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[color-mix(in_oklch,var(--primary)_85%,white_15%)]">
+              Big Data, ML/AI, Cybersecurity, Hardware, and more. I’m excited to join ambitious teams and projects.
+            </p>
+            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-[color-mix(in_oklch,var(--primary)_92%,white_8%)]">
+              Contact me <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            </div>
+          </Link>
+
           {experiences.map((xp) => (
             <article key={xp.company} className="xp-card rounded-2xl border bg-card text-card-foreground p-6 shadow-sm hover:shadow-md transition-all">
               <div className="flex items-center justify-between mb-1">
@@ -105,22 +126,7 @@ export function Experiences() {
               </div>
             </article>
           ))}
-          {/* Plus card to complete the grid and invite opportunities */}
-          <Link href="#contact" aria-label="Open to cutting-edge Computer Science opportunities" className="xp-card group rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-6 shadow-sm hover:shadow-md transition-all hover:border-emerald-300/60 focus:outline-none focus:ring-2 focus:ring-emerald-400/50">
-            <div className="mb-3 flex items-center justify-between">
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-400/20 text-emerald-300">
-                <span className="text-xl leading-none">+</span>
-              </div>
-              <span className="text-xs text-emerald-300/80">Let’s talk</span>
-            </div>
-            <h3 className="text-lg font-semibold tracking-tight text-emerald-300">Open to cutting-edge work</h3>
-            <p className="mt-2 text-sm leading-relaxed text-emerald-200/90">
-              Big Data, ML/AI, Cybersecurity, Hardware, and more. I’m excited to join ambitious teams and projects.
-            </p>
-            <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-200/95">
-              Contact me <span className="transition-transform group-hover:translate-x-0.5">→</span>
-            </div>
-          </Link>
+          {/* Removed duplicate plus card */}
         </div>
       </div>
     </section>
