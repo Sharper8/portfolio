@@ -46,17 +46,33 @@ export function About() {
           <div className="about-block md:col-span-3 rounded-2xl border bg-card p-6 shadow-sm">
             <h2 className="mb-3 text-2xl sm:text-3xl font-semibold tracking-tight">About</h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              I build calm, focused software — practical tools with a sharp edge. I like to ship small,
-              test quickly, and let results speak. When the work gets complex, I simplify.
+              A Master of Science in Computer Science candidate focused on cutting-edge technologies. Over 2 years of
+              experience orchestrating large-scale disaster recovery and risk analysis protocols, reflecting a strong
+              foundation in complex systems and operational resilience. I am eager to apply this vision and technical
+              skills to drive innovation in AI, cybersecurity and infrastructure projects.
             </p>
+            {/* Info chips moved from Contact to balance layout */}
+            <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
+              <span className="rounded-full border px-2.5 py-1">Based in FR (remote‑friendly)</span>
+              <span className="rounded-full border px-2.5 py-1">Typical response: ~24h</span>
+              <span className="rounded-full border px-2.5 py-1">Open to internships & consulting</span>
+            </div>
           </div>
           <div className="about-block md:col-span-2 rounded-2xl border bg-card p-6 shadow-sm">
-            <h3 className="mb-2 font-semibold tracking-tight">Quick facts</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Based in EU, remote‑first</li>
-              <li>• Frontend/Edge leaning full‑stack</li>
-              <li>• Enjoys motion, performance, and DX</li>
-              <li>• Currently building at OxY</li>
+            <h3 className="mb-2 font-semibold tracking-tight">Education</h3>
+            <div className="mb-4 text-sm text-muted-foreground">
+              <div className="font-medium text-foreground">Master of Science and Engineering: Network & Security Engineer</div>
+              <div>EFREI Paris, Paris Panthéon-Assas Université, Villejuif, France</div>
+              <div>September 2021 - August 2026 • GPA: 3.8</div>
+            </div>
+            <h3 className="mb-2 font-semibold tracking-tight">Certifications</h3>
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
+              <li>• CompTIA Security+</li>
+              <li>• TOEIC: 960</li>
+              <li>• CEH (ongoing)</li>
+              <li>• CCNA: Introduction to Networks</li>
+              <li>• Certified Stormshield Network Expert</li>
+              <li>• MOOC Project Management</li>
             </ul>
           </div>
         </div>
