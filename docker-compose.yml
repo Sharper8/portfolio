@@ -10,6 +10,8 @@ services:
     container_name: landingpage
     ports:
       - "3000:3000"
+    networks:
+      - All_containers_NPM
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
@@ -27,3 +29,6 @@ services:
     #   - ./.env:/app/.env:ro
     #   - ./public:/app/public:ro
     #   - ./next.config.mjs:/app/next.config.mjs:ro
+networks:
+  All_containers_NPM:
+    external: true
