@@ -46,6 +46,7 @@ const projects: Project[] = [
 
 export function Projects() {
   const gridRef = useRef<HTMLDivElement | null>(null)
+  const GITHUB_URL = "https://github.com/Sharper8"
 
   useEffect(() => {
     if (!gridRef.current) return
@@ -83,8 +84,12 @@ export function Projects() {
             return (
               <Link
                 key={p.title}
-                href={p.href || "#"}
-                className={`proj-card group rounded-2xl border bg-card p-6 shadow-sm transition-transform duration-300 will-change-transform ${cls}`}
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Open ${p.title} on GitHub`}
+                aria-label={`Open ${p.title} on GitHub (opens in a new tab)`}
+                className={`proj-card group rounded-2xl border bg-card p-6 shadow-sm transition-transform duration-300 will-change-transform focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${cls}`}
                 style={{ transform: "translateZ(0)" }}
               >
                 <div className="mb-2 flex items-center justify-between">
