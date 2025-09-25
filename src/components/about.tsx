@@ -53,7 +53,7 @@ export function About() {
             </p>
             {/* Info chips moved from Contact to balance layout */}
             <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
-              <span className="rounded-full border px-2.5 py-1">Based in FR (remote‑friendly)</span>
+              <span className="rounded-full border px-2.5 py-1">Open to relocation (global)</span>
               <span className="rounded-full border px-2.5 py-1">Typical response: ~24h</span>
               <span className="rounded-full border px-2.5 py-1">Open to internships & consulting</span>
             </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Link from "next/link"
 import { gsap } from "@/lib/gsap"
 
 type Experience = {
@@ -104,6 +105,22 @@ export function Experiences() {
               </div>
             </article>
           ))}
+          {/* Plus card to complete the grid and invite opportunities */}
+          <Link href="#contact" aria-label="Open to cutting-edge Computer Science opportunities" className="xp-card group rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-6 shadow-sm hover:shadow-md transition-all hover:border-emerald-300/60 focus:outline-none focus:ring-2 focus:ring-emerald-400/50">
+            <div className="mb-3 flex items-center justify-between">
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-400/20 text-emerald-300">
+                <span className="text-xl leading-none">+</span>
+              </div>
+              <span className="text-xs text-emerald-300/80">Let’s talk</span>
+            </div>
+            <h3 className="text-lg font-semibold tracking-tight text-emerald-300">Open to cutting-edge work</h3>
+            <p className="mt-2 text-sm leading-relaxed text-emerald-200/90">
+              Big Data, ML/AI, Cybersecurity, Hardware, and more. I’m excited to join ambitious teams and projects.
+            </p>
+            <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-200/95">
+              Contact me <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

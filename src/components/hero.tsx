@@ -48,15 +48,20 @@ export function Hero() {
 
   return (
   <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
-      {/* Unicorn Studio background layer (behind gradient, like old working view) */}
+      {/* Unicorn Studio background layer (behind overlays) */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div ref={unicornRef} className="absolute inset-0">
           <div data-us-project="sm6nv8sCoub9ngXWsBqU" style={{ width: "100%", height: "100%" }} />
         </div>
       </div>
 
-      {/* Subtle gradient overlay above Unicorn to ensure legibility (matches old working setup) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/30 to-background" />
+      {/* Top-to-bottom tone overlay: black → theme grey (smooth transition to next section) */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black via-black/50 to-[var(--background)]" />
+
+      {/* Bottom frosted blur gradient: no blur top/middle, strong blur lower part */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 z-20 [backdrop-filter:blur(22px)] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_100%)] bg-gradient-to-b from-transparent to-[color-mix(in_oklch,var(--background)_80%,transparent)]"
+      />
 
   <div className="absolute left-0 right-0 bottom-0 z-30 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24">
         <div className="flex flex-col items-start gap-6">
