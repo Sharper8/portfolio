@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
 import { Experiences } from "@/components/experiences";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
@@ -11,16 +12,17 @@ export default function Home() {
       {/* About */}
       <section id="about" className="scroll-mt-24">
         <Hero />
-      </section>
-
-      {/* Experiences */}
-      <section id="experiences" className="scroll-mt-24">
-        <Experiences />
+        <About />
       </section>
 
       {/* Skills */}
       <section id="skills" className="scroll-mt-24">
         <Skills />
+      </section>
+
+      {/* Experiences */}
+      <section id="experiences" className="scroll-mt-24">
+        <Experiences />
       </section>
 
       {/* Projects */}

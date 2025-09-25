@@ -52,7 +52,7 @@ export function Navbar() {
           <div className="h-16 flex items-center justify-between px-4">
             <div className="flex items-center gap-3">
               <Image src={logoSrc} alt="OxY logo" width={28} height={28} className="rounded-md" priority />
-              <Link href="/" className="font-semibold tracking-tight [font-family:var(--font-display)]">
+              <Link href="#about" className="font-semibold tracking-tight [font-family:var(--font-display)]">
                 OxY
               </Link>
             </div>

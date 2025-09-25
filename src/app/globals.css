@@ -59,6 +59,10 @@
   --popover: oklch(0.2603 0 0);
   --popover-foreground: oklch(0.7348 0 0);
   --primary: rgb(113, 238, 94);
+  /* Freeze decorative spotlight backgrounds */
+  #about [style*="radial-gradient"] {
+    background: none !important;
+  }
   --primary-foreground: oklch(0.9213 0.0135 167.1556);
   --secondary: oklch(23.172% 0.01266 17.992);
   --secondary-foreground: oklch(0.9851 0 0);
@@ -186,12 +190,12 @@ body::before {
   position: fixed;
   left: 0;
   right: auto;
-  top: 0.5rem; /* closer to top to eliminate visual gap */
+  top: 0; /* stick to very top */
   bottom: auto;
-  height: 6px;
+  height: 4px; /* slimmer, cleaner */
   width: var(--scroll-progress, 0%);
   background: color-mix(in oklch, var(--primary) 92%, white 8%);
-  z-index: 30; /* under navbar (navbar wrapper uses z-50) */
+  z-index: 60; /* above navbar (z-50) */
   border-radius: 999px;
 }
 
@@ -201,10 +205,10 @@ body::after {
   position: fixed;
   pointer-events: none;
   left: 0;
-  top: 0.35rem;
-  height: 10px;
+  top: 0;
+  height: 8px;
   width: var(--scroll-progress, 0%);
-  z-index: 29; /* below the line, still behind navbar */
+  z-index: 59; /* under line but above navbar */
   background:
     radial-gradient(6px 4px at 12% 50%, color-mix(in oklch, var(--primary) 30%, transparent 70%) 0%, transparent 60%) repeat-x,
     radial-gradient(10px 6px at 44% 50%, color-mix(in oklch, var(--primary) 22%, transparent 78%) 0%, transparent 60%) repeat-x,
@@ -219,3 +223,5 @@ body::after {
   0% { background-position: 0 0, 0 0, 0 0; }
   100% { background-position: 140px 0, 220px 0, 180px 0; }
 }
+
+/* Star cap removed for a cleaner top bar */

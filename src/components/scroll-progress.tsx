@@ -8,7 +8,7 @@ export default function ScrollProgress() {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const p = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
-      document.body.style.setProperty("--scroll-progress", `${p}%`)
+      document.documentElement.style.setProperty("--scroll-progress", `${p}%`)
     }
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })

@@ -1,0 +1,88 @@
+Summary
+
+A Master of Science in Computer Science candidate focused on cutting-edge technologies. Over 2 years of experience orchestrating large-scale disaster recovery and risk analysis protocols, reflecting a strong foundation in complex systems and operational resilience. I am eager to apply this vision and technical skills to drive innovation in AI, cybersecurity and infrastructure projects.
+Work Experience
+Disaster Recovery Plan Engineer, Worldwide - Apprentice
+
+Dassault Systèmes, Vélizy-Villacoublay (EMEA HQ), France | September 2023 - Present
+
+    Led and coordinated end-to-end disaster recovery (DR) exercises, overseeing cross-functional workshops with business and technical stakeholders to ensure a compliant and efficient process on a global scale.
+
+    Led the implementation of a DR testing orchestration framework, improving test coverage by ~25% and ensuring validation on different architecture models (Active/Passive, High-Availability).
+
+    Managed the end-to-end project lifecycle for an internal Business Impact Analysis (BIA) application, refining its data-driven algorithm with Python scripting to enhance the accuracy of assessments for over 500 applications.
+
+    Drove the production rollout of an automated and encrypted critical documentation archiving system, ensuring the reliability and security of backups with third-party stakeholders.
+
+    Developed and implemented dashboarding tools and KPIs, providing real-time visibility to collaborating teams and senior management on DR readiness.
+
+Business Process Analyst & IT support Ops - Summer Internship
+
+Dassault Systèmes, Boston, Massachusetts (NA HQ), USA | June 2024 - August 2024
+
+    Analyzed and optimized the corporate secondhand phone lifecycle workflow, improving processing time by 30% per device and ensuring compliance with cybersecurity policies.
+
+    Managed the deployment and decommissioning of corporate phones, overseeing a project from initiation to final recycling.
+
+    Provided advanced IT support to end-users, resolving complex technical and outage issues while maintaining high customer satisfaction.
+
+    Conducted regular audits of IT assets and inventory, identifying and mitigating potential security risks via custom dashboards and KPIs.
+
+Business Developer
+
+Logteam INTM, Paris, France | January 2023 - June 2023
+
+    Drove lead generation through extensive cold-calling and proactive outreach, resulting in over 10 business opportunities with major clients, including those in the CAC40 index.
+
+    Developed and deployed a custom CRM framework that served as a centralized database for ~5,000 prospects, streamlining collaboration and knowledge sharing across the team.
+
+    Conducted high-level needs analysis on client projects related to Cybersecurity, AI, and Data/Cloud, effectively matching client requirements with internal technical expertise.
+
+Education
+
+Master of Science and Engineering: Network & Security Engineer | September 2021 - August 2026
+EFREI Paris, Paris Panthéon-Assas Université, Villejuif, France
+
+    Current GPA: 3.8
+
+Certifications
+
+    Comptia Security+
+
+    TOEIC: 960
+
+    CEH (ongoing)
+
+    CCNA: Introduction to Networks
+
+    Certified Stormshield Network Expert
+
+    MOOC Project Management
+
+Side Projects
+
+    Swapaws.fr: A full-stack web application that allows users to exchange any products as a tradeable marketplace.
+
+    Homelab: A personal environment for self-hosting applications, a portfolio, blog, a SIEM, an XDR with heuristic-based detection, and a VPN.
+
+    Aeronautics Embedded Decision System: Served as an engineering consultant for an aeronautics startup, leveraging TTS & STT to prototype an embedded decision-making system.
+
+Skills
+
+    Programming Languages: Python, C, C++, Bash Scripting, HTML, CSS, PHP, SQL
+
+    Cloud & Infrastructure: AWS, GCP, Docker, Kubernetes, CI/CD, Networking (TCP/IP), OSI Model, Windows, Linux, Cloud Security, Firewalls
+
+    Cybersecurity: VPN, IPsec, Encryption, Risk Analysis, Disaster Recovery & Recovery Planning, OWASP Top 10, Wireshark, CIA
+
+    Data & AI/ML: Data Analysis, Machine Learning, Statistical Analysis, Data-Driven Algorithms
+
+    Project Management & Methodologies: Project Management
+
+School Projects
+
+    Cryptography: Implemented a symmetric encryption scheme using graph theory and the Prim's Spanning Tree algorithm.
+
+    Packet Detection: Developed a threat detection system using Machine Learning/AI to identify and analyze network traffic.
+
+    CI/CD Pipeline: Built and deployed a CI/CD pipeline using Jenkins and ArgoCD, hosted on a Kubernetes cluster.

@@ -2,10 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 
 type Testimonial = {
   name: string

@@ -10,8 +10,8 @@ export function Hero() {
   const headingRef = useRef<HTMLHeadingElement | null>(null)
 
   // Split headline into characters for animation
-  const leftText = useMemo(() => Array.from("BUILDING QUIETLY"), [])
-  const rightText = useMemo(() => Array.from(". SHIPPING BOLDLY."), [])
+  const leftText = useMemo(() => Array.from("BUILDING QUIETLY."), [])
+  const rightText = useMemo(() => Array.from(" SHIPPING BOLDLY."), [])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -72,9 +72,9 @@ export function Hero() {
           <Link
             href="#projects"
             className={buttonClasses({
-              variant: "secondary",
+              variant: "ghost",
               size: "lg",
-              className: "font-semibold tracking-wide hover:shadow-[0_18px_46px_-20px_var(--color-primary)] hover:border-primary/40",
+              className: "font-semibold tracking-wide border border-transparent hover:border-border hover:bg-foreground/10",
             })}
           >
             Explore my work
