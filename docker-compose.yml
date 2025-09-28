@@ -5,10 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: landingpage
-    ports:
-      - "3000:3000"
+    # Port mapping removed: service will be reached via reverse proxy on external network
     networks:
-      - All_containers_NPM
+      - Portfolio_network
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
@@ -28,5 +27,5 @@ services:
     #   - ./public:/app/public:ro
     #   - ./next.config.mjs:/app/next.config.mjs:ro
 networks:
-  All_containers_NPM:
+  Portfolio_network:
     external: true

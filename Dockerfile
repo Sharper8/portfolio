@@ -88,6 +88,9 @@ RUN chown -R nextjs:nodejs /app
 USER nextjs
 
 EXPOSE 3000
+# Note: No host port is published in docker-compose; a reverse proxy on the
+# external network (Portfolio_network) will connect directly to this internal
+# port 3000 container endpoint.
 
 # Start the Next.js server
 CMD ["node", "/app/node_modules/.bin/next", "start"]
