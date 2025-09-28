@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import ScrollProgress from "@/components/scroll-progress";
 import { Navbar } from "@/components/navbar";
 import Favicon from "@/components/favicon";
+import { VersionLogger } from "@/components/version-logger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
         >
           <Navbar />
           <Favicon />
+          <VersionLogger />
           <ScrollProgress />
           {children}
         </ThemeProvider>
