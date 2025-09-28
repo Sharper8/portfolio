@@ -16,8 +16,8 @@ services:
       - PORT=3000
     restart: unless-stopped
     healthcheck:
-      # Using wget since curl is not present in slim image; returns 0 only on HTTP 200
-      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:3000 || exit 1" ]
+      # Use Node's built-in fetch to avoid needing curl/wget binaries
+      test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))\"" ]
       interval: 30s
       timeout: 5s
       retries: 5
