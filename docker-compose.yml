@@ -1,6 +1,5 @@
 services:
   web:
-    image: landingpage:latest
     # Build from local Dockerfile for convenience, comment out if you push prebuilt images
     build:
       context: .
