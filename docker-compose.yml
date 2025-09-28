@@ -12,11 +12,12 @@ services:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
       - HOSTNAME=0.0.0.0
-      - PORT=80
+      # Keep PORT aligned with Dockerfile EXPOSE and healthcheck (avoid root binding to 80 inside container)
+      - PORT=3000
     restart: unless-stopped
     healthcheck:
-      # Use Node's built-in fetch to avoid needing curl/wget binaries
-      test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))\"" ]
+      # Use Node's built-in fetch to avoid needing curl/wget binaries. Respect PORT env (default 3000)
+      test: ["CMD-SHELL", "node -e \"const p=process.env.PORT||3000;fetch('http://localhost:'+p).then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))\"" ]
       interval: 30s
       timeout: 5s
       retries: 5
