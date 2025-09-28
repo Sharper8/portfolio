@@ -55,17 +55,17 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Top-to-bottom tone overlay: black → theme grey (smooth transition to next section) */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black via-black/50 to-[var(--background)]" />
 
-      {/* Bottom frosted blur gradient: no blur top/middle, strong blur lower part */}
+      {/* Bottom transition + selective blur: starts BELOW headline/button (~55%) */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 z-20 [backdrop-filter:blur(22px)] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_100%)] bg-gradient-to-b from-transparent to-[color-mix(in_oklch,var(--background)_80%,transparent)]"
+        className="pointer-events-none absolute inset-0 z-20 [--blur-start:55%] [--blur-full:72%] [backdrop-filter:blur(18px)] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0)_0%,rgba(0,0,0,0)_var(--blur-start),rgba(0,0,0,1)_var(--blur-full),rgba(0,0,0,1)_100%)] bg-gradient-to-b from-transparent via-[color-mix(in_oklch,var(--background)_45%,transparent)] to-[var(--background)]"
+        aria-hidden
       />
+
 
   <div className="absolute left-0 right-0 bottom-0 z-30 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24">
         <div className="flex flex-col items-start gap-6">
-          <h1 ref={headingRef} className="text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] max-w-4xl">
+          <h1 ref={headingRef} className="text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] max-w-4xl" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.45)' }}>
             {leftText.map((c, i) => (
               <span key={"l-" + i} data-char>{c}</span>
             ))}
