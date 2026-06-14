@@ -92,9 +92,9 @@ export function Experiences() {
             </div>
             <h3 className="text-lg font-semibold tracking-tight text-[color-mix(in_oklch,var(--primary)_92%,white_8%)]">Open to cutting-edge work</h3>
             <p className="mt-2 text-sm leading-relaxed text-[color-mix(in_oklch,var(--primary)_85%,white_15%)]">
-              Big Data, ML/AI, Cybersecurity, Hardware, and more. I’m excited to join ambitious teams and projects.
+              Infrastructure, Cybersecurity, ML/AI, distributed systems, and more. I'm excited to join ambitious teams and projects.
             </p>
-            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-[color-mix(in_oklch,var(--primary)_92%,white_8%)]">
+          <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-[color-mix(in_oklch,var(--primary)_92%,white_8%)]">
               Contact me <span className="transition-transform group-hover:translate-x-0.5">→</span>
             </div>
           </Link>
