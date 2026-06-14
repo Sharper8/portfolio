@@ -7,48 +7,50 @@ on:
 jobs:
   deploy:
     name: Build & Deploy to Server
-    runs-on: ubuntu-latest
+    # Runs on the self-hosted runner installed on the ThinkPad homelab server.
+    # The runner has direct access to docker and /opt/infrastructure.
+    runs-on: [self-hosted, homelab]
     timeout-minutes: 15
 
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          port: ${{ secrets.DEPLOY_PORT }}
-          script_stop: true
-          script: |
-            set -euo pipefail
+      - name: Pull latest code
+        run: |
+          set -euo pipefail
+          REPO_DIR="/home/user_ubuntu_serv/src/portfolio"
+          cd "$REPO_DIR"
+          git fetch origin main
+          git reset --hard origin/main
+          echo "✓ Now at: $(git log --oneline -1)"
 
-            REPO_DIR="/home/${{ secrets.DEPLOY_USER }}/src/portfolio"
-            COMPOSE_DIR="/opt/infrastructure/compose/landingpage"
-            SOURCES_DIR="/opt/infrastructure/sources/portfolio"
+      - name: Sync to Docker build context
+        run: |
+          set -euo pipefail
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.next' \
+            /home/user_ubuntu_serv/src/portfolio/ \
+            /opt/infrastructure/sources/portfolio/
+          echo "✓ Sources synced"
 
-            echo "=== [1/4] Pulling latest code ==="
-            cd "$REPO_DIR"
-            git fetch origin main
-            git reset --hard origin/main
+      - name: Build Docker image
+        run: |
+          set -euo pipefail
+          cd /opt/infrastructure/compose/landingpage
+          docker compose build --no-cache web
+          echo "✓ Image built"
 
-            echo "=== [2/4] Syncing to sources dir ==="
-            rsync -a --delete \
-              --exclude='.git' \
-              --exclude='node_modules' \
-              --exclude='.next' \
-              "$REPO_DIR/" "$SOURCES_DIR/"
+      - name: Restart container
+        run: |
+          set -euo pipefail
+          cd /opt/infrastructure/compose/landingpage
+          docker compose up -d --force-recreate
+          echo "✓ Container restarted"
 
-            echo "=== [3/4] Rebuilding Docker image ==="
-            cd "$COMPOSE_DIR"
-            docker compose build --no-cache web 2>&1 | tail -10
-
-            echo "=== [4/4] Restarting container ==="
-            docker compose up -d --force-recreate
-            sleep 5
-
-            echo "=== Health check ==="
-            STATUS=$(docker inspect --format='{{.State.Health.Status}}' landingpage 2>/dev/null || echo "no-healthcheck")
-            echo "Container status: $STATUS"
-            docker ps --filter name=landingpage --format "table {{.Names}}\t{{.Status}}"
-
-            echo "✅ Portfolio deployment complete"
+      - name: Health check
+        run: |
+          sleep 10
+          STATUS=$(docker inspect --format='{{.State.Health.Status}}' landingpage 2>/dev/null || echo "no-healthcheck")
+          echo "Health: $STATUS"
+          docker ps --filter name=landingpage --format "table {{.Names}}\t{{.Status}}"
+          echo "✅ Portfolio deployment complete"
