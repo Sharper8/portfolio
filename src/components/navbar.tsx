@@ -11,7 +11,6 @@ import logoSrc from "../../logo_BlackHole.png"
 const sections = [
   { id: "about", label: "About" },
   { id: "experiences", label: "Experiences" },
-  { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ]

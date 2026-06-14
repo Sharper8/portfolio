@@ -89,10 +89,6 @@ export function Contact() {
                 {copied === "email" ? "Copied ✓" : "Copy email"}
               </button>
 
-              <Link href="https://linkedin.com/in/syl-bh/" target="_blank" rel="noopener noreferrer" className="shine inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-medium hover:border-primary/40 relative overflow-hidden">
-                {/* LinkedIn */}
-                <span className="i">in</span> LinkedIn
-              </Link>
               <Link href="https://github.com/Sharper8" target="_blank" rel="noopener noreferrer" className="shine inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-medium hover:border-primary/40 relative overflow-hidden">
                 {/* GitHub */}
                 <span>🐙</span> GitHub

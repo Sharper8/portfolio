@@ -46,10 +46,10 @@ export function About() {
           <div className="about-block md:col-span-3 rounded-2xl border bg-card p-6 shadow-sm flex flex-col">
             <h2 className="mb-3 text-2xl sm:text-3xl font-semibold tracking-tight">About</h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              A Master of Science in Computer Science candidate focused on cutting-edge technologies. Over 2 years of
-              experience orchestrating large-scale disaster recovery and risk analysis protocols, reflecting a strong
-              foundation in complex systems and operational resilience. I am eager to apply this vision and technical
-              skills to drive innovation in AI, cybersecurity and infrastructure projects.
+              An Infrastructure and Security Engineer specializing in IT continuity, resilience engineering, and governance,
+              with hands-on exposure to chaos engineering and anti-ransomware strategy. As a Master of Science and Engineering
+              candidate, I design systems that stay available under failure and bridge operational rigor with emerging AI tooling
+              to reduce risk at scale. Eager to drive innovation in AI, cybersecurity, and infrastructure projects.
             </p>
             {/* Info chips moved from Contact to balance layout */}
             <div className="mt-auto pt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
@@ -61,18 +61,19 @@ export function About() {
           <div className="about-block md:col-span-2 rounded-2xl border bg-card p-6 shadow-sm">
             <h3 className="mb-2 font-semibold tracking-tight">Education</h3>
             <div className="mb-4 text-sm text-muted-foreground">
-              <div className="font-medium text-foreground">Master of Science and Engineering: Network & Security Engineer</div>
+              <div className="font-medium text-foreground">Master of Science and Engineering: Networks & Security engineer</div>
               <div>EFREI Paris, Paris Panthéon-Assas Université, Villejuif, France</div>
-              <div>September 2021 - August 2026 • GPA: 3.8</div>
+              <div>September 2021 - Expected August 2026 • GPA: 3.8 / 4.0</div>
             </div>
             <h3 className="mb-2 font-semibold tracking-tight">Certifications</h3>
             <ul className="space-y-1.5 text-sm text-muted-foreground">
-              <li>• CompTIA Security+</li>
-              <li>• TOEIC: 960</li>
-              <li>• CEH (ongoing)</li>
-              <li>• CCNA: Introduction to Networks</li>
-              <li>• Certified Stormshield Network Expert</li>
-              <li>• MOOC Project Management</li>
+              <li>• AWS Solutions Architect Associate (2026)</li>
+              <li>• Certified Ethical Hacker (CEH) (2025)</li>
+              <li>• CompTIA Security+ (2025)</li>
+              <li>• Certified Stormshield Network Administrator (2025)</li>
+              <li>• TOEIC: 960 (2025)</li>
+              <li>• MOOC Project Management (2024)</li>
+              <li>• CCNA: Introduction to Networks (2023)</li>
             </ul>
           </div>
         </div>

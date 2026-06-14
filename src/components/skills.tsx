@@ -4,12 +4,11 @@ import { useEffect, useRef } from "react"
 import { gsap } from "@/lib/gsap"
 
 const keywords: string[] = [
-  "Cybersecurity", "cloud security", "networking fundamentals", "Recovery planning", "Risk analysis", "TCP/IP",
-  "PYTHON", "C", "C++", "HTML / CSS / PHP / SQL", "OSI model", "Cloud Infrastructures", "Project Management", "ML/AI",
-  "OSI (TCP, IP, UDP)", "VPN", "OSPF", "SSL/TLS", "Cisco Packet tracer", "GNS3",
-  "Scripting : Bash, PowerShell, Perl", "Linux / Unix / Windows", "Oracle VM / QEMU KVM", "Git / Github / Gitlab",
-  "OWASP Top 10", "Wireshark", "Database administration", "Website administration (OVH)", "AWS", "Firewalls",
-  "CIA Triad", "Virtual machines (Virtual Box / VMware)", "scripting", "open source", "FOSS", "SIEM",
+  "Cybersecurity", "Cloud Security", "Networks & Protocols", "Disaster Recovery", "Risk Analysis", "TCP/IP",
+  "Python", "C++", "C", "Bash Scripting", "PowerShell", "Git / GitHub", "Docker", "Kubernetes", "AWS",
+  "Linux", "High Availability", "Distributed Systems", "Cryptography", "Encryption Schemes", "Firewalls",
+  "Wireshark", "VPN", "AI/ML", "Scikit-Learn", "Prompt Engineering", "Orchestration", "CI/CD", "SIEM",
+  "XDR", "OWASP Top 10", "Active Directory", "Identity Validation", "Key Recovery", "BitLocker"
 ]
 
 function Row({ items, reverse = false, idx = 0 }: { items: string[]; reverse?: boolean; idx?: number }) {

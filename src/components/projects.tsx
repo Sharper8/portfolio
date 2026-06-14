@@ -13,33 +13,45 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Swapaws.fr",
-    blurb: "A full-stack marketplace for exchanging products via trades.",
-    tags: ["Full‑stack", "Next.js", "PostgreSQL"],
+    title: "Owpal.com",
+    blurb: "Deploying on-premise, open-source AI systems to ensure enterprise data sovereignty. Engineered automated workflows connecting internal tools (LMS, Slack) directly to local Agentic infrastructure.",
+    tags: ["AI Systems", "Agentic IT", "Workflows", "Open Source"],
+    href: "https://owpal.com",
+  },
+  {
+    title: "Swapaws.app",
+    blurb: "Built a full-stack P2P exchange (React, TypeScript, PostgreSQL, MongoDB). Developed an NLP pipeline that parses unstructured natural language buy/sell inputs into structured databases.",
+    tags: ["React", "TypeScript", "NLP", "PostgreSQL", "MongoDB"],
+    href: "https://swapaws.app",
+  },
+  {
+    title: "Devprocore.com",
+    blurb: "Designed and delivered an embedded, offline Speech-to-Text (STT) and Text-to-Speech (TTS) mobile app prototype for an aeronautics startup.",
+    tags: ["STT/TTS", "Embedded Mobile", "React Native", "Consulting"],
+    href: "https://devprocore.com",
+  },
+  {
+    title: "AI Cyber Content Pipeline",
+    blurb: "Designed and engineered an AI-powered cyber content generation pipeline leveraging semantic processing and prompt orchestration; defended before BNP Paribas stakeholders.",
+    tags: ["AI/ML", "Semantic Processing", "Prompt Orchestration"],
     href: "#",
   },
   {
-    title: "Homelab",
-    blurb: "Self-hosted environment: portfolio, blog, SIEM, XDR with heuristic detection, VPN, and more.",
-    tags: ["Linux", "SIEM", "XDR", "Networking"],
-    href: "#",
-  },
-  {
-    title: "Cryptography — Symmetric Scheme via Prim's MST",
-    blurb: "Implemented a symmetric encryption scheme leveraging graph theory and Prim's spanning tree algorithm.",
+    title: "Cryptography — Prim's MST",
+    blurb: "Implemented a symmetric encryption scheme leveraging graph theory and the Prim’s Spanning Tree algorithm.",
     tags: ["Cryptography", "Algorithms", "C/C++"],
     href: "#",
   },
   {
-    title: "Packet Detection — ML/AI",
-    blurb: "Developed a threat detection system using ML/AI to identify and analyze network traffic.",
-    tags: ["Networking", "ML/AI", "Python"],
+    title: "ML/AI Threat Detection",
+    blurb: "Developed a Machine Learning/AI threat detection system in network traffic using scikit-learn with 98% accuracy.",
+    tags: ["Scikit-Learn", "Cybersecurity", "Python", "ML/AI"],
     href: "#",
   },
   {
-    title: "CI/CD Pipeline on Kubernetes",
-    blurb: "Built and deployed a Jenkins + ArgoCD pipeline, hosted on a Kubernetes cluster.",
-    tags: ["CI/CD", "Jenkins", "ArgoCD", "Kubernetes"],
+    title: "Homelab & SIEM/XDR",
+    blurb: "Self-hosted environment featuring a personal portfolio, blog, SIEM, XDR with heuristic detection, and a secure VPN.",
+    tags: ["Linux", "SIEM", "XDR", "Networking", "VPN"],
     href: "#",
   },
 ]
@@ -81,14 +93,15 @@ export function Projects() {
                 : i % 5 === 3
                 ? "lg:col-span-6"
                 : "lg:col-span-12"
+            const isExternalLink = p.href && p.href !== "#"
             return (
               <Link
                 key={p.title}
-                href={GITHUB_URL}
+                href={p.href || GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                title={`Open ${p.title} on GitHub`}
-                aria-label={`Open ${p.title} on GitHub (opens in a new tab)`}
+                title={isExternalLink ? `Visit ${p.title}` : `Open ${p.title} on GitHub`}
+                aria-label={isExternalLink ? `Visit ${p.title} (opens in a new tab)` : `Open ${p.title} on GitHub (opens in a new tab)`}
                 className={`proj-card group rounded-2xl border bg-card p-6 shadow-sm transition-transform duration-300 will-change-transform focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${cls}`}
                 style={{ transform: "translateZ(0)" }}
               >

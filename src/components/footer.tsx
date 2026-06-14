@@ -4,7 +4,6 @@ import { Github, Twitter, Linkedin } from "lucide-react"
 const footerLinks = [
   { href: "#about", label: "About" },
   { href: "#experiences", label: "Experiences" },
-  { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
   { href: "https://blog.devprocore.com", label: "Blog", external: true },
@@ -29,9 +28,8 @@ export function Footer() {
           </nav>
 
           <div className="flex items-center gap-4 text-muted-foreground">
-            <Link href="#" aria-label="Twitter" className="hover:text-foreground transition-colors"><Twitter size={18} /></Link>
-            <Link href="#" aria-label="LinkedIn" className="hover:text-foreground transition-colors"><Linkedin size={18} /></Link>
-            <Link href="#" aria-label="GitHub" className="hover:text-foreground transition-colors"><Github size={18} /></Link>
+            <Link href="https://x.com/0xymoore" aria-label="Twitter" className="hover:text-foreground transition-colors"><Twitter size={18} /></Link>
+            <Link href="https://github.com/Sharper8" aria-label="GitHub" className="hover:text-foreground transition-colors"><Github size={18} /></Link>
           </div>
         </div>
 
