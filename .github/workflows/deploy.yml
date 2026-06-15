@@ -37,14 +37,14 @@ jobs:
         run: |
           set -euo pipefail
           cd /opt/infrastructure/compose/landingpage
-          docker compose build --no-cache web
+          docker compose build --no-cache landingpage
           echo "✓ Image built"
 
       - name: Restart container
         run: |
           set -euo pipefail
           cd /opt/infrastructure/compose/landingpage
-          docker compose up -d --force-recreate
+          docker compose up -d --force-recreate landingpage
           echo "✓ Container restarted"
 
       - name: Health check
