@@ -1,6 +1,6 @@
 # Multi-stage Dockerfile for Next.js 15 (App Router) production build
 # 1) Base image with Node
-FROM node:20-bookworm-slim AS base
+FROM node:26-bookworm-slim AS base
 
 # Disable telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
