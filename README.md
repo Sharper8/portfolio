@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Legibility assets (GEO pass, additive)
+
+Machine/agent-facing files, all additive — nothing existing was rewritten:
+
+- `public/llms.txt` — llmstxt.org overview for LLM crawlers
+- `public/robots.txt` — explicit `Allow` for AI/search agents (GPTBot, ClaudeBot, CCBot, …)
+- `public/sitemap.xml` — sitemap (single page for now)
+- `src/components/json-ld.tsx` — schema.org JSON-LD (`WebSite` + `ProfilePage`/`Person`),
+  rendered from `src/app/layout.tsx`
+
+**Before first deploy**, set the canonical domain: `sitemap.xml` and `json-ld.tsx` currently
+use the placeholder `https://sylva.dev/` — replace with the real domain. Validate after
+deploy with `legibility validate <url> --jsonld-type WebSite` (growth-engine CLI).
+

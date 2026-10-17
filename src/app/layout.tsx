@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/scroll-progress";
 import { Navbar } from "@/components/navbar";
 import Favicon from "@/components/favicon";
 import { VersionLogger } from "@/components/version-logger";
+import { JsonLd } from "@/components/json-ld";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${display.variable} antialiased`}
       >
+        <JsonLd />
         <ThemeProvider
           defaultTheme="dark"
           storageKey="ui-theme"

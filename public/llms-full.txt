@@ -1,0 +1,35 @@
+# OxY — Portfolio (full documentation)
+
+> Personal portfolio of Sylva: projects, experience, and writing. Systems
+> engineering background, AI-infrastructure projects, build-in-public. This is
+> the unrestricted form of /llms.txt for agents that want complete detail.
+
+## Who
+
+Sylva — computer-science graduate, systems engineer (Dassault Systèmes),
+Île-de-France. Builds PAI (Personal Artificial Intelligence infrastructure):
+a Jarvis-class personal agent runtime, the stated mission being a system that
+automates low-value tasks so time goes to high-value work.
+
+## Projects featured on this site
+
+- **Alpha Finder** — early-signal tech watch SaaS: continuous ingest of model
+  drops, exploding repos/startups, live cyber campaigns; provenance-of-trust
+  for every tracked source; retrospective re-scoring of signals. Live at
+  [alpha.devprocore.com](https://alpha.devprocore.com) with a public JSON API
+  (see its /llms.txt and /openapi.json).
+- **PAI** — the personal-AI meta system: canonical docs, entity vault
+  (Obsidian as system of record), infrastructure-as-code for the VPS, and the
+  Hermes async agent runtime.
+- **Growth engine** — distribution layer for the portfolio: GEO citation
+  probing, short-form content pipeline, multi-business publishing ops.
+
+## Site structure
+
+- `/` — single page: hero, about, projects, experience, skills, testimonials,
+  pricing notes, contact. All content is static and prerendered.
+
+## Contact
+
+GitHub: [Sharper8](https://github.com/Sharper8). The contact section on the
+homepage lists current channels; email is preferred for anything non-trivial.
