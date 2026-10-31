@@ -1,0 +1,18 @@
+# Host-side compose for the APPS host (188.245.65.46) — copy to
+# /opt/projects/apps/portfolio/docker-compose.yml there.
+# No published ports (secure-by-default): Traefik joins `portfolio_default`
+# manually and routes to http://portfolio-app:80.
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sharper8-portfolio:main
+    container_name: portfolio-app
+    restart: always
+    networks:
+      - default
+
+networks:
+  default:
+    name: portfolio_default

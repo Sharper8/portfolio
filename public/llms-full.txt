@@ -1,35 +1,58 @@
-# OxY — Portfolio (full documentation)
+# OxY — systems & infrastructure engineer
 
-> Personal portfolio of Sylva: projects, experience, and writing. Systems
-> engineering background, AI-infrastructure projects, build-in-public. This is
-> the unrestricted form of /llms.txt for agents that want complete detail.
+> Portfolio of OxY, an anonymous systems & infrastructure engineer: selected
+> work, experience and credentials. Credibility artifact for recruiters and
+> potential collaborators.
 
-## Who
+OxY is a systems & infrastructure engineer, anonymous by choice — the work is
+the résumé. Apprentice Site Reliability Engineer at a CAC40 software group
+(EMEA HQ), building personal AI/agent infrastructure on the side. Open to
+internships, consulting, and infra/security/AI work — remote or relocation.
 
-Sylva — computer-science graduate, systems engineer (Dassault Systèmes),
-Île-de-France. Builds PAI (Personal Artificial Intelligence infrastructure):
-a Jarvis-class personal agent runtime, the stated mission being a system that
-automates low-value tasks so time goes to high-value work.
+## Experience
 
-## Projects featured on this site
+- 2023 — now · Site Reliability Engineer (apprentice), CAC40 software group,
+  EMEA HQ. Global disaster-recovery orchestration across 200+ applications
+  (+25% test coverage, incl. systems driving €1B+ revenue); enterprise risk
+  analysis re-engineered with Python + ML clustering over 500+ platforms
+  (ISO 27001/SOC2); zero-trust AWS Glacier backups with 4h RTO; Grafana
+  observability pipelines feeding executive dashboards.
+- Summer 2024 · IT Operations (intern), same group, North America HQ.
+  IT asset lifecycle automation (−30% processing time), secure provisioning
+  and decommissioning (BitLocker, data sanitization), cross-domain Active
+  Directory incident resolution.
+- 2023 · Business Developer, IT consulting firm. 10+ qualified CAC40
+  opportunities in AI/ML, cybersecurity and cloud; CRM framework for ~5,000
+  prospects.
 
-- **Alpha Finder** — early-signal tech watch SaaS: continuous ingest of model
-  drops, exploding repos/startups, live cyber campaigns; provenance-of-trust
-  for every tracked source; retrospective re-scoring of signals. Live at
-  [alpha.devprocore.com](https://alpha.devprocore.com) with a public JSON API
-  (see its /llms.txt and /openapi.json).
-- **PAI** — the personal-AI meta system: canonical docs, entity vault
-  (Obsidian as system of record), infrastructure-as-code for the VPS, and the
-  Hermes async agent runtime.
-- **Growth engine** — distribution layer for the portfolio: GEO citation
-  probing, short-form content pipeline, multi-business publishing ops.
+## Selected work
 
-## Site structure
+- swapaws.app (https://swapaws.app) — full-stack P2P barter platform; NLP
+  pipeline parsing unstructured buy/sell text into structured listings.
+- PAI — self-hosted personal AI infrastructure: agent runtime, persistent
+  entity memory, kanban orchestration, semantic search.
+- Alpha Finder (https://alpha.devprocore.com) — automated early-signal
+  tech-watch pipeline.
+- Homelab & SIEM/XDR — docker-first homelab: Wazuh SIEM/XDR, mesh VPN,
+  Nextcloud, Vaultwarden, everything as code.
+- ML threat detection — network-traffic threat detection with scikit-learn,
+  98% accuracy on benchmark datasets.
+- Cryptography — symmetric cipher built on Prim's spanning-tree algorithm
+  (C/C++).
 
-- `/` — single page: hero, about, projects, experience, skills, testimonials,
-  pricing notes, contact. All content is static and prerendered.
+## Credentials
 
-## Contact
+- AWS Solutions Architect Associate (2026)
+- Certified Ethical Hacker, CEH (2025)
+- CompTIA Security+ (2025)
+- Stormshield Network Administrator (2025)
+- CCNA: Introduction to Networks (2023)
+- MSc Engineering, Networks & Security — Paris (2026)
+- TOEIC 960 / 990
 
-GitHub: [Sharper8](https://github.com/Sharper8). The contact section on the
-homepage lists current channels; email is preferred for anything non-trivial.
+## Links
+
+- [Home](https://devprocore.com/)
+- [GitHub](https://github.com/Sharper8)
+- [X / @0xymoore](https://x.com/0xymoore)
+- [Contact](mailto:alias.vantage458@passinbox.com)

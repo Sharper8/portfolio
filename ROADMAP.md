@@ -1,9 +1,20 @@
 # Portfolio — ROADMAP
 
-Public portfolio of Sylva's projects with visuals — the credibility surface for
-build-in-public and the landing destination for growth-engine traffic. Quick win: it feeds
-every other product's distribution. (Repo already contains a Next.js scaffold — this ROADMAP is
-additive, no rewrite of existing app code.)
+Public portfolio of **OxY** (anonymous persona — no real name/face; X @0xymoore, GitHub
+Sharper8) with visuals — the credibility surface for build-in-public and the landing
+destination for growth-engine traffic. 2026-10-31: full redesign to the tty-terminal
+variant, static export, hosted on the APPS host (kanban t_c09f7b6c).
+
+## Queue
+
+- [ ] **Project visuals (M1.1/M1.2 residue)** — the 2026-10-31 OxY refresh shipped
+  text-first cards; add real screenshots/demo reels per project (ShipReel reels when
+  available), then Lighthouse ≥90 re-check.
+- [ ] **Re-host to Cloudflare Pages** once the CF vantage-account migration
+  (`PAI/deploy/cloudflare-migration/`) completes: static export already builds
+  (`next build` → `out/`), so Pages is a pure drag-and-drop/wrangler publish; the
+  APPS-host nginx container is the interim target (decision: kanban t_c09f7b6c).
+- [ ] **French variant (M3.1)** — hreflang FR/EN once copy stabilizes.
 
 ## First task for the next agent
 

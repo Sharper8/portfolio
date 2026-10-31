@@ -1,19 +1,19 @@
-# OxY — Portfolio
+# OxY — systems & infrastructure engineer
 
-> Personal portfolio of Sylva: projects, experience, and writing. Systems
-> engineering background, AI-infrastructure projects, build-in-public.
+> Portfolio of OxY, an anonymous systems & infrastructure engineer: selected
+> work, experience and credentials. Credibility artifact for recruiters and
+> potential collaborators.
 
-## Pages
+OxY is a systems & infrastructure engineer (anonymous by choice) working as an
+apprentice Site Reliability Engineer at a CAC40 software group. He designs
+systems that stay up when things go wrong: disaster-recovery orchestration,
+zero-trust backup architectures, observability pipelines, and AI/agent
+infrastructure.
 
-- [Home](/) — projects, experience, skills, contact
+## Links
 
-## About
-
-Sylva is a computer-science graduate and systems engineer building PAI
-(Personal Artificial Intelligence infrastructure) — a Jarvis-class personal
-agent runtime — alongside early-signal tech-watch tooling. Projects here span
-FastAPI/Python backends, Next.js frontends, and infrastructure-as-code.
-
-## Contact
-
-Links and contact channels are on the [homepage contact section](/#contact).
+- [Home](https://devprocore.com/)
+- [GitHub](https://github.com/Sharper8)
+- [X / @0xymoore](https://x.com/0xymoore)
+- [Contact](mailto:alias.vantage458@passinbox.com)
+- [Full details](https://devprocore.com/llms-full.txt)

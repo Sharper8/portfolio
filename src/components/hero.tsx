@@ -1,91 +1,50 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useEffect, useMemo, useRef } from "react"
-import { buttonClasses } from "@/components/ui/button"
-import { gsap } from "@/lib/gsap"
+import { useEffect, useState } from "react";
+
+const COMMAND = "whoami";
 
 export function Hero() {
-  const unicornRef = useRef<HTMLDivElement | null>(null)
-  const headingRef = useRef<HTMLHeadingElement | null>(null)
+  const [typed, setTyped] = useState("");
 
-  // Split headline into characters for animation
-  const leftText = useMemo(() => Array.from("BUILDING QUIETLY."), [])
-  const rightText = useMemo(() => Array.from(" SHIPPING BOLDLY."), [])
-
-  // Load UnicornStudio only once (prevents duplicate canvases)
   useEffect(() => {
-    if (typeof window === "undefined") return
-    const w: any = window
-    if (w.UnicornStudio?.isInitialized) return
-
-    const script = document.createElement("script")
-    // Use the previously proven version; update if you prefer v1.4.31
-    script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.30/dist/unicornStudio.umd.js"
-    script.async = true
-    script.onload = () => {
-      if (!w.UnicornStudio?.isInitialized) {
-        try { w.UnicornStudio?.init?.() } catch {}
-        w.UnicornStudio = { ...w.UnicornStudio, isInitialized: true }
-      }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTyped(COMMAND);
+      return;
     }
-    ;(document.head || document.body).appendChild(script)
-  }, [])
-
-  useEffect(() => {
-    if (!headingRef.current) return
-    const chars = headingRef.current.querySelectorAll("span[data-char]")
-    gsap.set(chars, { y: 24, opacity: 0 })
-    gsap.to(chars, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      stagger: 0.025,
-      delay: 0.15,
-    })
-  }, [])
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += 1;
+      setTyped(COMMAND.slice(0, i));
+      if (i >= COMMAND.length) window.clearInterval(id);
+    }, 120);
+    return () => window.clearInterval(id);
+  }, []);
 
   return (
-  <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
-      {/* Unicorn Studio background layer (behind overlays) */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div ref={unicornRef} className="absolute inset-0">
-          <div data-us-project="sm6nv8sCoub9ngXWsBqU" style={{ width: "100%", height: "100%" }} />
-        </div>
+    <section className="hero" id="top">
+      <div className="prompt">
+        <b>oxy@devprocore</b>:~$ {typed}
+        <span className="cursor" />
       </div>
-
-
-      {/* Bottom transition + selective blur: starts BELOW headline/button (~55%) */}
-      <div
-        className="pointer-events-none absolute inset-0 z-20 [--blur-start:55%] [--blur-full:72%] [backdrop-filter:blur(18px)] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0)_0%,rgba(0,0,0,0)_var(--blur-start),rgba(0,0,0,1)_var(--blur-full),rgba(0,0,0,1)_100%)] bg-gradient-to-b from-transparent via-[color-mix(in_oklch,var(--background)_45%,transparent)] to-[var(--background)]"
-        aria-hidden
-      />
-
-
-  <div className="absolute left-0 right-0 bottom-0 z-30 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24">
-        <div className="flex flex-col items-start gap-6">
-          <h1 ref={headingRef} className="text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] max-w-4xl" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.45)' }}>
-            {leftText.map((c, i) => (
-              <span key={"l-" + i} data-char>{c}</span>
-            ))}
-            {rightText.map((c, i) => (
-              <span key={"r-" + i} data-char className="text-primary">{c}</span>
-            ))}
-          </h1>
-
-          <Link
-            href="#projects"
-            className={buttonClasses({
-              variant: "ghost",
-              size: "lg",
-              className: "font-semibold tracking-wide border border-transparent hover:border-border hover:bg-foreground/10",
-            })}
-          >
-            Explore my work
-          </Link>
-        </div>
+      <h1>
+        OxY<span className="dim"> — systems &amp; infrastructure engineer.</span>
+      </h1>
+      <p className="tagline">
+        I design systems that stay up when things go wrong: disaster recovery,
+        zero-trust backups, observability pipelines.{" "}
+        <b>Apprentice SRE at a CAC40 software group</b>, building my own agent
+        infrastructure on the side. Anonymous here on purpose — the work is the
+        résumé.
+      </p>
+      <div className="cta-row">
+        <a className="btn" href="#work">
+          ./view_work
+        </a>
+        <a className="btn ghost" href="#contact">
+          ./contact
+        </a>
       </div>
     </section>
-  )
+  );
 }
