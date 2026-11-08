@@ -1,0 +1,17 @@
+# Secret-leak prevention: gitleaks scans every commit before it enters history.
+# Uses the official gitleaks entrypoint/flags from
+# https://github.com/gitleaks/gitleaks/blob/v8.30.1/.pre-commit-hooks.yaml
+# defined as a local `system` hook: upstream's `gitleaks-system` manifest entry
+# omits `pass_filenames: false` (only the golang/docker variants set it), which
+# breaks `pre-commit run --all-files`. Requires gitleaks v8.30.1 in PATH:
+# https://github.com/gitleaks/gitleaks/releases/tag/v8.30.1
+# Setup:  pre-commit install && pre-commit run --all-files
+# Docs:   GITLEAKS.md (docs/gitleaks-prevention.md in mission-control).
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: gitleaks v8.30.1 (official entry)
+        entry: gitleaks git --pre-commit --redact --staged --verbose
+        language: system
+        pass_filenames: false
